@@ -32,6 +32,12 @@ jobs:
           ${{ runner.os }}-build-
           ${{ runner.os }}-
           
+    - name: testing directory
+      run: |
+        ls -a
+        cd ..
+        ls -a
+          
     - name: Install Dependencies
       if: steps.cache-nodemodules.outputs.cache-hit != 'true'
       run: |
