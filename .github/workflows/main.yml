@@ -9,9 +9,14 @@ on:
 jobs:
   my_job:
     name: Deploy to LW
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
   
     steps:
+    - name: install node and npm
+      run: |
+        apt install nodejs
+        apt install npm
+
     - name: npm install and install angular cli
       run: |
         npm install
