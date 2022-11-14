@@ -17,7 +17,7 @@ jobs:
         ls -a
         cd ../../
         ls -a
-        cd _temp
+        cd _temp/_runner_file_commands
         ls -a
 
     - name: Setup Node.js environment
