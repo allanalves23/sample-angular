@@ -14,8 +14,8 @@ jobs:
     steps:
     - name: install node and npm
       run: |
-        apt install nodejs
-        apt install npm
+        sudo apt install nodejs
+        sudo apt install npm
 
     - name: npm install and install angular cli
       run: |
