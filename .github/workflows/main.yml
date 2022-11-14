@@ -9,9 +9,13 @@ on:
 jobs:
   ci:
     name: Deploy to LW
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
   
     steps:
+    - name: cd and ls
+      run: |
+        ls -a
+
     - name: Setup Node.js environment
       uses: actions/setup-node@v3.5.1
       with:
