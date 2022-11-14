@@ -35,8 +35,8 @@ jobs:
     - name: studies-lwftp-testing
       uses: allanalves23/ftp-action-studies@0.0.2
       with:
-        host: "ftp.brqdomaintest1.hospedagemdesites.ws"
-        user: "brqdomaintest1"
+        host: "ftp.brqtestcigithub1.hospedagemdesites.ws"
+        user: "brqtestcigithub1"
         password: "Pass123456789@"
         localDir: "dist/my-first-project"
         remoteDir: "public_html"
