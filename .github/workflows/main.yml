@@ -12,9 +12,13 @@ jobs:
     runs-on: ubuntu-18.04
   
     steps:
-    - name: npm install and build
+    - name: npm install and install angular cli
       run: |
         npm install
+        npm install -g @angular/cli
+
+    - name: production build
+      run: |
         ng build --configuration=production
 
     - name: studies-lwftp-testing
