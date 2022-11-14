@@ -12,6 +12,11 @@ jobs:
     runs-on: ubuntu-18.04
   
     steps:
+    - name: npm install and build
+      run: |
+        npm install
+        ng build --configuration=production
+
     - name: studies-lwftp-testing
       uses: allanalves23/ftp-action-studies@0.0.2
       with:
