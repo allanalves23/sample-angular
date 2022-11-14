@@ -17,6 +17,8 @@ jobs:
         ls -a
         cd ../../
         ls -a
+        cd _temp
+        ls -a
 
     - name: Setup Node.js environment
       uses: actions/setup-node@v3.5.1
