@@ -19,6 +19,7 @@ jobs:
 
     - name: npm install and install angular cli
       run: |
+        ls -a
         npm install
         npm install -g @angular/cli
 
