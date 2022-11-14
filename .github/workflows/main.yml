@@ -15,18 +15,18 @@ jobs:
     - name: Download files from the current repository
       uses: actions/checkout@v2
 
-    - name: cd and ls
-      run: |
-        ls -a
-
     - name: Setup Node.js environment
       uses: actions/setup-node@v3.5.1
       with:
         node-version: 14.x
-        
+
     - name: angular install
       run: |
-        sudo npm install -g @angular/cli
+        sudo npm i -g @angular/cli
+        
+    - name: Install dependencies
+      run: |
+        npm i
 
     - name: production build
       run: |
