@@ -26,13 +26,7 @@ jobs:
           command: npm i
       - run:
           name: Angular Build
-          command: ls -a && ng build --configuration=production 
-      - ftp-sync-testing/lftp:
-          forcessl: false 
-          host: ftp.blablablaagropec1.hospedagemdesites.ws 
-          user: blablablaagropec1 
-          password: Pass123456789@ 
-          localDir: dist/my-first-project
+          command: ng build --configuration=production 
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
@@ -40,3 +34,9 @@ workflows:
   say-hello-workflow:
     jobs:
       - ci
+      - ftp-sync-testing/hello:
+            host: ftp.blablablaagropec1.hospedagemdesites.ws  
+            user: blablablaagropec1 
+            password: Pass123456789@  
+            localDir: dist/my-first-project 
+            forcessl: false 
