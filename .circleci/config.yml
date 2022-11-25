@@ -16,9 +16,7 @@ jobs:
       - node/install:
           install-yarn: false 
           node-version: '14.17.0'
-      - node/install-packages:
-          pkg-manager: npm 
-          cache-only-lockfile: true
+      - run: ls -a && node -v && npm -v 
       - run: sudo npm i -g @angular/cli
       - run: npm i
       - run: ng build --configuration=production 
