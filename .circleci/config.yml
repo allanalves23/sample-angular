@@ -12,7 +12,7 @@ jobs:
   ci:
     docker:
       # replace with your preferred image
-      - image: cimg/base:stable
+      - image: alpine:3.11
     steps:
       - advanced-checkout/shallow-checkout
       - node/install:
