@@ -8,10 +8,10 @@ orbs:
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
-  node/run:
+  ci:
     docker:
       # replace with your preferred image
-      - image: alpine:3.11
+      - image: cimg/base:stable
     steps:
       - checkout
       - node/install:
@@ -25,7 +25,13 @@ jobs:
           command: npm i
       - run:
           name: Angular Build
-          command: ls -a && ng build --configuration=production 
+          command: ng build --configuration=production 
+  cd: 
+    docker:
+      # replace with your preferred image
+      - image: alpine:3.11
+    steps:
+      - run: ls -a
       - ftp-sync-testing/lftp:
           forcessl: false 
           host: ftp.blablablaagropec1.hospedagemdesites.ws 
@@ -36,7 +42,7 @@ jobs:
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  default-workflow:
+  say-hello-workflow:
     jobs:
-      - node/run:
-          version: lts 
+      - ci
+      - cd
