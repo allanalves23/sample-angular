@@ -26,13 +26,11 @@ jobs:
       - run:
           name: Angular Build
           command: ng build --configuration=production
-      - run:
-          command: echo $FTP_HOST $FTP_USER $FTP_PASS
       - ftp-sync-testing/lftp:
           forcessl: false 
-          host: ${FTP_HOST}
-          user: ${FTP_USER}
-          password: ${FTP_PASS} 
+          host: ftp.blablablaagropec1.hospedagemdesites.ws
+          user: blablablaagropec1
+          password: Pass123456789@
           localDir: dist/my-first-project
       
 # Invoke jobs via workflows
