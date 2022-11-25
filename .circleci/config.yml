@@ -12,6 +12,10 @@ jobs:
     docker:
       # replace with your preferred image
       - image: cimg/base:stable
+    environment:
+      FTP_HOST: $FTP_HOST
+      FTP_USER: $FTP_USER
+      FTP_PASS: $FTP_PASS
     steps:
       - checkout
       - node/install:
