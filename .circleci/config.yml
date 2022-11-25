@@ -15,7 +15,7 @@ jobs:
     steps:
       - node/install:
           install-yarn: false 
-          node-version: '14.17.0'
+          node-version: '14.20.0'
       - run: npm i -g @angular/cli
       - run: npm i
       - run: ng build --configuration=production 
