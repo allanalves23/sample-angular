@@ -3,21 +3,32 @@
 version: 2.1
 
 orbs:
-  ftp-sync-testing: allanalves23-default/ftp-sync-testing@1.0.1
+  ftp-sync-testing: allanalves23-default/ftp-sync-testing@1.2.0
+  node: circleci/node@5.0.3
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
-  example-job:
+  ci:
     docker:
       # replace with your preferred image
       - image: cimg/base:stable
     steps:
-      - ftp-sync-testing/greet:
-          to: Allan 
+      - node/install:
+          install-yarn: false 
+          node-version: '14.x' 
+      - run: sudo npm i -g @angular/cli
+      - run: npm i
+      - run: ng build --configuration=production 
+      - ftp-sync-testing/lftp:
+          forcessl: false 
+          host: ftp.blablablaagropec1.hospedagemdesites.ws 
+          user: blablablaagropec1 
+          password: Pass123456789@ 
+          localDir: dist/my-first-project
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
   say-hello-workflow:
     jobs:
-      - example-job
+      - ci
