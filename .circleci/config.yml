@@ -13,12 +13,21 @@ jobs:
       # replace with your preferred image
       - image: cimg/base:stable
     steps:
+      - run:
+          name: Checkout source code
+          command: git clone -b "$CIRCLE_BRANCH" "$CIRCLE_REPOSITORY_URL"
       - node/install:
           install-yarn: false 
           node-version: '14.20.0'
-      - run: npm i -g @angular/cli
-      - run: npm i
-      - run: ls -a && ng build --configuration=production 
+      - run:
+          name: Install angular cli
+          command: npm i -g @angular/cli
+      - run:
+          name: Install dependencies
+          command: npm i
+      - run:
+          name: Angular Build
+          command: ls -a && ng build --configuration=production 
       - ftp-sync-testing/lftp:
           forcessl: false 
           host: ftp.blablablaagropec1.hospedagemdesites.ws 
