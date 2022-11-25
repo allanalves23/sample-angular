@@ -28,9 +28,9 @@ jobs:
           command: ng build --configuration=production
       - ftp-sync-testing/lftp:
           forcessl: false 
-          host: "${FTP_HOST}"
-          user: "${FTP_USER}"
-          password: "${FTP_PASS}"
+          host: $FTP_HOST
+          user: $FTP_USER
+          password: $FTP_PASS
           localDir: dist/my-first-project
       
 # Invoke jobs via workflows
