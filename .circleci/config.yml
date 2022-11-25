@@ -25,7 +25,9 @@ jobs:
           command: npm i
       - run:
           name: Angular Build
-          command: ng build --configuration=production 
+          command: ng build --configuration=production
+      - run:
+          command: echo $FTP_HOST $FTP_USER $FTP_PASS
       - ftp-sync-testing/lftp:
           forcessl: false 
           host: $FTP_HOST
